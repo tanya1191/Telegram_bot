@@ -199,6 +199,12 @@ public class MyTelegramBot extends TelegramLongPollingBot {
                 sendTextMessage(chatId, "Your order is empty. Please add products before confirming.");
             }
         }
+	else if (callbackData.startsWith("cancel_order")) {
+       	 userCarts.remove(chatId);
+
+       	sendTextMessage(chatId, "Your order has been cancelled. Thank you!");
+       }
+
         else if (callbackData.startsWith("quantity:")) {
         	handleQuantitySelection(callbackQuery);
         }
@@ -615,12 +621,12 @@ public class MyTelegramBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return "BharatGeneralStore_bot";
+        return "tanya_grocery_store_bot";
     }
 
     @Override
     public String getBotToken() {
-        return "6096763201:AAEoVIOYwQ2MkRwwjeniRHI4bCxIvjaenjw";
+        return "6627411043:AAFFXUc0ofBujstkEnWsI1sW_98Y4pY7ESY";
     }
 }
 
